@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Light Dress Bless — Detalle del producto." />
+  <title>Light Dress Bless — StyleStore</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/detalle.css" />
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ══════════════════════════════════
+       HERO IMAGE + BOTONES FLOTANTES
+  ══════════════════════════════════ -->
+  <section class="hero-section no-img" aria-label="Imagen del producto">
+
+    <!--
+      INSTRUCCIÓN: Cuando tengas la imagen, reemplaza la clase "no-img"
+      con la imagen dentro del section:
+      <img
+        src="../almacenamiento/img/detalle-principal.jpg"
+        alt="Light Dress Bless — vestido negro elegante vista frontal"
+      />
+    -->
+
+    <!-- Nav flotante sobre la imagen -->
+    <div class="hero-nav" aria-label="Navegación de producto">
+
+      <!-- Botón Atrás -->
+      <a href="../índice.html" class="circle-btn" aria-label="Volver al catálogo">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </a>
+
+      <!-- Botón Favorito -->
+      <button
+        class="circle-btn"
+        id="fav-btn"
+        aria-label="Agregar a favoritos"
+        aria-pressed="false"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
+                   a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78
+                   1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════
+       CONTENIDO PRINCIPAL
+  ══════════════════════════════════ -->
+  <main class="content-area">
+
+    <!-- Título + control de cantidad -->
+    <div class="product-title-row">
+      <h1 class="product-title">Light Dress<br>Bless</h1>
+
+      <div class="qty-control" role="group" aria-label="Cantidad">
+        <button
+          class="qty-btn"
+          id="qty-minus"
+          aria-label="Reducir cantidad"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+
+        <output class="qty-value" id="qty-display" aria-live="polite">1</output>
+
+        <button class="qty-btn" id="qty-plus" aria-label="Aumentar cantidad">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5"  y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Rating + contador de vistas -->
+    <div class="meta-row">
+
+      <div class="rating-group" aria-label="Calificación 5.0">
+        <svg class="star-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88
+                   L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <span class="rating-score">5.0</span>
+        <span class="rating-reviews">(7,932 reviews)</span>
+      </div>
+
+      <span class="views-count" aria-label="248 personas viendo este producto">
+        248 viewing
+      </span>
+
+    </div>
+
+    <!-- Descripción corta + Ver más -->
+    <p class="description-block">
+      Its simple and elegant shape makes it perfect for
+      those of you who like you who want minimalist
+      clothes&nbsp;
+      <button
+        class="read-more-btn"
+        id="open-modal-btn"
+        aria-haspopup="dialog"
+        aria-controls="desc-modal"
+      >Read More. . .</button>
+    </p>
+
+    <div class="divider" role="separator"></div>
+
+    <div class="selectors-row">
+
+      <div class="selectors-col selectors-col--sizes">
+        <p class="section-label">Choose Size</p>
+        <div class="size-options" role="group" aria-label="Seleccionar talla">
+          <button class="size-chip" aria-pressed="false" aria-label="Talla S">S</button>
+          <button class="size-chip" aria-pressed="false" aria-label="Talla M">M</button>
+          <button class="size-chip active" aria-pressed="true" aria-label="Talla L — seleccionada">L</button>
+          <button class="size-chip" aria-pressed="false" aria-label="Talla XL">XL</button>
+        </div>
+      </div>
+
+      <div class="selectors-col selectors-col--colors">
+        <p class="section-label">Color</p>
+        <div class="color-options" role="group" aria-label="Seleccionar color">
+          <button class="color-swatch" title="Gris claro" aria-label="Gris claro" style="background:#A3A1A2;"></button>
+          <button class="color-swatch" title="Gris oscuro" aria-label="Gris oscuro" style="background:#787676;"></button>
+          <button class="color-swatch" title="Negro" aria-label="Negro" style="background:#121111;"></button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════
+       CTA — ADD TO CART
+  ══════════════════════════════════ -->
+  <aside class="cta-bar" aria-label="Acción de compra">
+    <a href="../vistas/pago.html" class="btn-add-to-cart" aria-label="Añadir al carrito">
+      <!-- Icono carrito -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      Add to Cart |
+      <span class="btn-add-to-cart__price" id="cta-price">$100.99</span>
+      <span class="btn-add-to-cart__old-price" aria-label="Precio original $190.99">$190.99</span>
+    </a>
+  </aside>
+
+  <!-- ══════════════════════════════════
+       MODAL — DESCRIPCIÓN COMPLETA
+  ══════════════════════════════════ -->
+  <div
+    class="modal-overlay"
+    id="desc-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-heading"
+    aria-hidden="true"
+  >
+    <div class="modal-sheet">
+      <div class="modal-handle" aria-hidden="true"></div>
+
+      <button class="modal-close-btn" id="close-modal-btn" aria-label="Cerrar descripción">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6"  y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <h2 class="modal-title" id="modal-heading">Light Dress Bless</h2>
+
+      <div class="modal-body">
+        <p>
+          Its simple and elegant shape makes it perfect for those of you who
+          like minimalist clothes. Crafted from premium lightweight fabric,
+          this dress offers both comfort and sophistication for any occasion.
+        </p>
+        <br/>
+        <p>
+          The modern cut follows the natural silhouette without being
+          restrictive, making it ideal for all-day wear. The subtle texture
+          adds visual interest while maintaining the clean aesthetic that
+          defines contemporary fashion.
+        </p>
+        <br/>
+        <p><strong>Material:</strong> 95% Polyester, 5% Elastane</p>
+        <p><strong>Care:</strong> Machine wash cold, hang to dry</p>
+        <p><strong>Origin:</strong> Designed in NYC, Made in Portugal</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.page-wrapper -->
+
+<!-- ══════════════════════════════════
+     JS MÍNIMO — sin librerías
+══════════════════════════════════ -->
+<script>
+  const UNIT_PRICE = 100.99;
+
+  /* ── Favorito ── */
+  const favBtn = document.getElementById('fav-btn');
+  favBtn.addEventListener('click', () => {
+    const active = favBtn.classList.toggle('fav-active');
+    favBtn.setAttribute('aria-pressed', active);
+    favBtn.setAttribute('aria-label', active ? 'Quitar de favoritos' : 'Agregar a favoritos');
+  });
+
+  /* ── Cantidad ── */
+  let qty = 1;
+  const minusBtn  = document.getElementById('qty-minus');
+  const plusBtn   = document.getElementById('qty-plus');
+  const qtyDisplay = document.getElementById('qty-display');
+  const ctaPrice  = document.getElementById('cta-price');
+
+  function updateQty(n) {
+    qty = Math.max(1, Math.min(10, n));
+    qtyDisplay.textContent = qty;
+    ctaPrice.textContent = '$' + (UNIT_PRICE * qty).toFixed(2);
+    minusBtn.disabled = qty === 1;
+    plusBtn.disabled  = qty === 10;
+  }
+
+  minusBtn.addEventListener('click', () => updateQty(qty - 1));
+  plusBtn.addEventListener('click',  () => updateQty(qty + 1));
+
+  /* ── Tallas ── */
+  document.querySelectorAll('.size-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.size-chip').forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+    });
+  });
+
+  /* ── Colores ── */
+  document.querySelectorAll('.color-swatch').forEach(swatch => {
+    swatch.addEventListener('click', function() {
+      document.querySelectorAll('.color-swatch').forEach(s => {
+        s.classList.remove('active');
+        s.setAttribute('aria-pressed', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+    });
+  });
+
+  /* ── Modal descripción ── */
+  const modal    = document.getElementById('desc-modal');
+  const openBtn  = document.getElementById('open-modal-btn');
+  const closeBtn = document.getElementById('close-modal-btn');
+
+  function openModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    openBtn.focus();
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+</script>
+
+
+</body>
+</html>

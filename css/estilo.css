@@ -1,0 +1,489 @@
+/* ============================================================
+   ESTILO.CSS — Página de Inicio
+   Fiel al wireframe Figma: fondo blanco, Encode Sans,
+   paleta monocromática Nam Design
+   ============================================================ */
+
+@import url('variables.css');
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--lh-normal);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a   { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+ul  { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font); }
+
+/* ── Contenedor página ── */
+.page-wrapper {
+  max-width: var(--page-max-w);
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: var(--color-bg);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ════════════════════════════════
+   TOP BAR
+   ════════════════════════════════ */
+.top-bar {
+  padding: var(--sp-5) var(--page-px) var(--sp-3);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.top-bar__greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.top-bar__hello {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-muted);
+}
+
+.top-bar__hello .emoji { font-style: normal; }
+
+.top-bar__name {
+  font-size: var(--text-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+}
+
+/* Avatar circular */
+.top-bar__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+  background: var(--color-bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder cuando no hay imagen */
+.avatar-placeholder {
+  font-size: var(--text-md);
+  font-weight: var(--fw-semi);
+  color: var(--color-text-muted);
+  font-family: var(--font);
+}
+
+/* ════════════════════════════════
+   BARRA DE BÚSQUEDA
+   (basada en el recurso del proyecto)
+   ════════════════════════════════ */
+.search-section {
+  padding: var(--sp-3) var(--page-px) var(--sp-4);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.search-bar__input-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar__icon {
+  position: absolute;
+  left: var(--sp-4);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar__icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-text-faint);
+  fill: none;
+}
+
+.search-bar__input {
+  width: 100%;
+  padding: 0.75rem var(--sp-4) 0.75rem calc(var(--sp-4) + 16px + var(--sp-2));
+  font-family: var(--font);
+  font-size: var(--text-base);
+  font-weight: var(--fw-regular);
+  color: var(--color-text);
+  background: var(--color-bg-soft);
+  border: 1.5px solid var(--color-bg-soft);
+  border-radius: var(--radius-full);
+  outline: none;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.search-bar__input::placeholder {
+  color: var(--color-text-faint);
+}
+
+.search-bar__input:focus {
+  border-color: var(--color-border-dark);
+}
+
+/* Botón filtro — cuadrado redondeado oscuro (Figma) */
+.search-bar__filter-btn {
+  width: 46px;
+  height: 46px;
+  background: var(--color-btn-bg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity var(--dur-fast);
+}
+
+.search-bar__filter-btn:hover { opacity: 0.85; }
+.search-bar__filter-btn:active { opacity: 0.7; }
+
+.search-bar__filter-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  fill: none;
+}
+
+/* ════════════════════════════════
+   CHIPS DE CATEGORÍA
+   ════════════════════════════════ */
+.categories-section {
+  padding: 0 var(--page-px) var(--sp-5);
+}
+
+.categories-scroll {
+  display: flex;
+  gap: var(--sp-2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.categories-scroll::-webkit-scrollbar { display: none; }
+
+.category-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem var(--sp-4);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.category-chip:hover {
+  background: var(--color-bg-soft);
+}
+
+.category-chip.active {
+  background: var(--color-chip-active-bg);
+  border-color: var(--color-chip-active-bg);
+  color: var(--color-chip-active-text);
+}
+
+.category-chip__icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Chip "All Items" tiene icono grid (SVG) */
+.chip-all-icon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 13px;
+  height: 13px;
+}
+
+.chip-all-icon span {
+  display: block;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+/* ════════════════════════════════
+   GRID DE PRODUCTOS
+   ════════════════════════════════ */
+.products-section {
+  padding: 0 var(--page-px);
+  padding-bottom: calc(var(--bottom-nav-h) + var(--sp-6));
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+/* ── Product Card ── */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  cursor: pointer;
+}
+
+/* Imagen — proporción 1:1.3 aprox, bordes redondeados */
+.product-card__img-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-soft);
+  aspect-ratio: 3 / 4;
+}
+
+.product-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.product-card:hover .product-card__img-wrap img {
+  transform: scale(1.04);
+}
+
+/* Imagen placeholder cuando no hay img */
+.product-card__img-wrap.no-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card__img-wrap.no-img::after {
+  content: '👗';
+  font-size: 2.5rem;
+  opacity: 0.3;
+}
+
+/* Botón favorito circular blanco */
+.product-card__fav-btn {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.92);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur-fast);
+}
+
+.product-card__fav-btn:hover { background: #fff; }
+
+.product-card__fav-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-text);
+  fill: none;
+  transition: fill var(--dur-fast), stroke var(--dur-fast);
+}
+
+.product-card__fav-btn.active svg {
+  stroke: var(--color-text);
+  fill: var(--color-text);
+}
+
+/* Info debajo de la imagen */
+.product-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 2px;
+}
+
+.product-card__name {
+  font-size: var(--text-base);
+  font-weight: var(--fw-semi);
+  color: var(--color-text);
+  line-height: var(--lh-snug);
+}
+
+.product-card__category {
+  font-size: var(--text-xs);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-muted);
+}
+
+.product-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.product-card__price {
+  font-size: var(--text-base);
+  font-weight: var(--fw-semi);
+  color: var(--color-text);
+}
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Estrella llena (SVG inline) */
+.star-icon {
+  width: 12px;
+  height: 12px;
+  fill: var(--color-star);
+}
+
+.product-card__rating span {
+  font-size: var(--text-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+}
+
+/* ════════════════════════════════
+   BOTTOM NAV
+   ════════════════════════════════ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--page-max-w);
+  height: var(--bottom-nav-h);
+  background: var(--color-05);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 var(--sp-6);
+  z-index: 200;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: opacity var(--dur-fast);
+}
+
+.nav-item:hover { opacity: 0.7; }
+
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+  stroke: rgba(255,255,255,0.55);
+  fill: none;
+  stroke-width: 1.8;
+  transition: stroke var(--dur-fast);
+}
+
+.nav-item.active svg { stroke: #FFFFFF; }
+
+/* Badge carrito */
+.nav-item__wrap {
+  position: relative;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  color: var(--color-05);
+  font-size: 9px;
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Utilidades ── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════ */
+@media (min-width: 430px) {
+  .page-wrapper {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --page-px: 16px;
+  }
+
+  .products-grid {
+    gap: var(--sp-3);
+  }
+
+  .top-bar__name {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-max-w: 480px;
+  }
+}

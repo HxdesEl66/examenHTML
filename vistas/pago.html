@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Carrito de compras — StyleStore." />
+  <title>Checkout — StyleStore</title>
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/checkout.css" />
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ══════════════════════════════════
+       HAMBURGER CONTROL (checkbox oculto)
+       Recurso obligatorio del proyecto
+  ══════════════════════════════════ -->
+  <input
+    type="checkbox"
+    class="navbar-toggle"
+    id="nav-toggle"
+    aria-hidden="true"
+  />
+
+  <!-- ══════════════════════════════════
+       HEADER — Atrás | Checkout | Hamburger
+  ══════════════════════════════════ -->
+  <header class="checkout-header">
+
+    <!-- Botón Atrás circular -->
+    <a href="../índice.html" class="btn-back" aria-label="Volver al inicio">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </a>
+
+    <h1 class="checkout-header__title">Checkout</h1>
+
+    <!-- Icono hamburguesa (label del checkbox) -->
+    <label
+      class="hamburger-lines"
+      for="nav-toggle"
+      aria-label="Abrir menú de navegación"
+      role="button"
+      tabindex="0"
+    >
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </label>
+
+  </header>
+
+  <!-- ══════════════════════════════════
+       OVERLAY (cierra menú al clic)
+  ══════════════════════════════════ -->
+  <label
+    class="nav-overlay"
+    for="nav-toggle"
+    aria-hidden="true"
+  ></label>
+
+  <!-- ══════════════════════════════════
+       PANEL DE MENÚ LATERAL
+  ══════════════════════════════════ -->
+  <nav class="nav-menu" aria-label="Menú de navegación">
+
+    <label
+      class="nav-menu__close"
+      for="nav-toggle"
+      role="button"
+      tabindex="0"
+      aria-label="Cerrar menú"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="18" y1="6"  x2="6"  y2="18"/>
+        <line x1="6"  y1="6"  x2="18" y2="18"/>
+      </svg>
+      Cerrar
+    </label>
+
+    <a href="../índice.html" class="nav-menu__link" aria-label="Ir a Inicio">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      Home
+    </a>
+
+    <a href="pago.html" class="nav-menu__link active" aria-label="Ir al Carrito" aria-current="page">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      Cart
+    </a>
+
+    <a href="#" class="nav-menu__link" aria-label="Ir a Favoritos">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
+                 a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78
+                 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      Wishlist
+    </a>
+
+    <div class="nav-menu__divider" role="separator"></div>
+
+    <a href="#" class="nav-menu__link" aria-label="Ir a mi Perfil">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      Profile
+    </a>
+
+  </nav>
+
+  <!-- ══════════════════════════════════
+       CUERPO DEL CHECKOUT
+  ══════════════════════════════════ -->
+  <main class="checkout-body">
+
+    <!-- ── CART ITEMS ── -->
+    <section aria-label="Productos en el carrito">
+      <ul class="cart-items-list" id="cart-list" role="list"
+          aria-label="Lista de productos">
+
+        <!-- Item 1 -->
+        <li role="listitem">
+          <div class="cart-item" data-price="212.99" data-qty="4">
+
+            <!-- Imagen -->
+            <div class="cart-item__img no-img" role="img" aria-label="Modern light clothes">
+              <!--
+                INSTRUCCIÓN: Reemplaza la clase no-img y descomenta:
+                <img
+                  src="../almacenamiento/img/producto-1.jpg"
+                  alt="Modern light clothes"
+                />
+              -->
+              👗
+            </div>
+
+            <!-- Detalles -->
+            <div class="cart-item__details">
+              <span class="cart-item__name">Modern light clothes</span>
+              <span class="cart-item__category">Dress modern</span>
+              <span class="cart-item__price" aria-live="polite">$851.96</span>
+            </div>
+
+            <!-- Derecha: menú + qty -->
+            <div class="cart-item__right">
+              <button class="cart-item__menu-btn" aria-label="Opciones del producto">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="qty-mini" role="group" aria-label="Cantidad">
+                <button class="qty-mini__btn minus-btn" aria-label="Reducir cantidad">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+                <output class="qty-mini__val" aria-live="polite">4</o>
+                <button class="qty-mini__btn plus-btn" aria-label="Aumentar cantidad">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5"  y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+          <div class="cart-item-divider" role="separator"></div>
+        </li>
+
+        <!-- Item 2 -->
+        <li role="listitem">
+          <div class="cart-item" data-price="162.99" data-qty="1">
+
+            <div class="cart-item__img no-img" role="img" aria-label="Modern light clothes negro">
+              👗
+            </div>
+
+            <div class="cart-item__details">
+              <span class="cart-item__name">Modern light clothes</span>
+              <span class="cart-item__category">Dress modern</span>
+              <span class="cart-item__price" aria-live="polite">$162.99</span>
+            </div>
+
+            <div class="cart-item__right">
+              <button class="cart-item__menu-btn" aria-label="Opciones del producto">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="qty-mini" role="group" aria-label="Cantidad">
+                <button class="qty-mini__btn minus-btn" aria-label="Reducir cantidad" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+                <output class="qty-mini__val" aria-live="polite">1</o>
+                <button class="qty-mini__btn plus-btn" aria-label="Aumentar cantidad">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5"  y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- ── SHIPPING INFORMATION ── -->
+    <section class="shipping-section" aria-label="Información de envío">
+
+      <h2 class="shipping-section__title">Shipping Information</h2>
+
+      <!-- Selector de tarjeta -->
+      <div class="payment-selector" role="button" tabindex="0"
+           aria-label="Cambiar método de pago">
+        <div class="payment-selector__left">
+          <span class="visa-badge" aria-hidden="true">VISA</span>
+          <span class="payment-selector__number">**** **** **** 2143</span>
+        </div>
+        <div class="payment-selector__chevron">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── RESUMEN DE COSTOS ── -->
+    <section class="order-summary" aria-label="Resumen del pedido">
+
+      <div class="summary-row">
+        <span class="summary-row__label">Total (9 items)</span>
+        <span class="summary-row__val" id="subtotal">$1,014.95</span>
+      </div>
+
+      <div class="summary-row">
+        <span class="summary-row__label">Shipping Fee</span>
+        <span class="summary-row__val">$0.00</span>
+      </div>
+
+      <div class="summary-row">
+        <span class="summary-row__label">Discount</span>
+        <span class="summary-row__val">$0.00</span>
+      </div>
+
+      <div class="summary-divider" role="separator"></div>
+
+      <div class="summary-total-row">
+        <span class="label">Sub Total</span>
+        <span class="val" id="total-final" aria-live="polite">$1,014.95</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════
+       BOTÓN PAY
+  ══════════════════════════════════ -->
+  <div class="cta-bar">
+    <button
+      class="btn-pay"
+      id="pay-btn"
+      aria-label="Pagar $1,014.95"
+    >
+      Pay
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════
+       MODAL CONFIRMACIÓN
+  ══════════════════════════════════ -->
+  <div
+    class="modal-overlay"
+    id="confirm-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="confirm-title"
+    aria-hidden="true"
+  >
+    <div class="modal-card">
+
+      <div class="modal-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <h2 class="modal-card__title" id="confirm-title">
+        Order Confirmed!
+      </h2>
+
+      <p class="modal-card__subtitle">
+        Your purchase has been processed
+        successfully. You'll receive a confirmation
+        email shortly.
+      </p>
+
+      <span class="modal-card__order-id">
+        Order #ST-2025-00847
+      </span>
+
+      <div class="modal-card__actions">
+        <a href="../índice.html" class="btn-modal-primary">
+          Continue Shopping
+        </a>
+        <button class="btn-modal-secondary" id="close-confirm-btn">
+          View My Orders
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /.page-wrapper -->
+
+<!-- ══════════════════════════════════
+     JS MÍNIMO — sin librerías
+══════════════════════════════════ -->
+<script>
+  /* ── Cantidades ── */
+  function recalc() {
+    let total = 0;
+    let itemCount = 0;
+
+    document.querySelectorAll('#cart-list .cart-item').forEach(item => {
+      const price = parseFloat(item.dataset.price);
+      const qty   = parseInt(item.dataset.qty, 10);
+      const line  = price * qty;
+      total += line;
+      itemCount += qty;
+
+      item.querySelector('.qty-mini__val').textContent = qty;
+      item.querySelector('.cart-item__price').textContent =
+        '$' + line.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+      const minus = item.querySelector('.minus-btn');
+      const plus  = item.querySelector('.plus-btn');
+      if (minus) minus.disabled = qty <= 1;
+      if (plus)  plus.disabled  = qty >= 20;
+    });
+
+    const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById('subtotal').textContent    = fmt(total);
+    document.getElementById('total-final').textContent = fmt(total);
+    document.getElementById('pay-btn').setAttribute('aria-label', 'Pagar ' + fmt(total));
+
+    const priceLabel = document.querySelector('.summary-row__label');
+    if (priceLabel) priceLabel.textContent = 'Total (' + itemCount + ' items)';
+  }
+
+  document.querySelectorAll('#cart-list .cart-item').forEach(item => {
+    item.querySelector('.plus-btn').addEventListener('click', () => {
+      item.dataset.qty = parseInt(item.dataset.qty, 10) + 1;
+      recalc();
+    });
+    item.querySelector('.minus-btn').addEventListener('click', () => {
+      const q = parseInt(item.dataset.qty, 10);
+      if (q > 1) { item.dataset.qty = q - 1; recalc(); }
+    });
+  });
+
+  recalc();
+
+  /* ── Modal confirmación ── */
+  const confirmModal = document.getElementById('confirm-modal');
+  const payBtn       = document.getElementById('pay-btn');
+  const closeConfirm = document.getElementById('close-confirm-btn');
+
+  payBtn.addEventListener('click', () => {
+    confirmModal.classList.add('open');
+    confirmModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeModal() {
+    confirmModal.classList.remove('open');
+    confirmModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeConfirm.addEventListener('click', closeModal);
+  confirmModal.addEventListener('click', e => {
+    if (e.target === confirmModal) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && confirmModal.classList.contains('open')) closeModal();
+  });
+</script>
+
+</body>
+</html>

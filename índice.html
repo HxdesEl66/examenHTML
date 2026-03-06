@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StyleStore — Tu tienda de moda online." />
+  <title>StyleStore — Inicio</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ══════════════════════════════════
+       TOP BAR — Saludo + Avatar
+  ══════════════════════════════════ -->
+  <header class="top-bar">
+
+    <div class="top-bar__greeting">
+      <span class="top-bar__hello">
+        Hello, Welcome <span class="emoji">👋</span>
+      </span>
+      <span class="top-bar__name">Jholver pardo </span>
+    </div>
+
+    <!-- Avatar de usuario -->
+    <div class="top-bar__avatar" role="img" aria-label="Foto de perfil de Albert Stevano">
+      <img src="/almacenamiento/img/image.png" alt="avatar">
+      <span class="avatar-placeholder" aria-hidden="true"></span>
+    </div>
+
+  </header>
+
+  <!-- ══════════════════════════════════
+       BARRA DE BÚSQUEDA
+  ══════════════════════════════════ -->
+  <section class="search-section" aria-label="Búsqueda">
+
+    <div class="search-bar" role="search">
+
+      <div class="search-bar__input-wrap">
+        <span class="search-bar__icon" aria-hidden="true">
+          <!-- Lupa SVG -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <label for="search-input" class="sr-only">Buscar ropa</label>
+        <input
+          id="search-input"
+          class="search-bar__input"
+          type="search"
+          placeholder="Search clothes..."
+          autocomplete="off"
+          aria-label="Buscar ropa"
+        />
+      </div>
+
+      <!-- Botón filtro oscuro (Figma) -->
+      <button class="search-bar__filter-btn" aria-label="Filtrar resultados">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4"  y1="6"  x2="20" y2="6"/>
+          <line x1="8"  y1="12" x2="16" y2="12"/>
+          <line x1="11" y1="18" x2="13" y2="18"/>
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CHIPS DE CATEGORÍAS
+  ══════════════════════════════════ -->
+  <nav class="categories-section" aria-label="Categorías de ropa">
+    <ul class="categories-scroll" role="list">
+
+      <li>
+        <button class="category-chip active" aria-pressed="true" aria-label="Todos los artículos">
+          <!-- Icono grid 2x2 -->
+          <span class="chip-all-icon" aria-hidden="true">
+            <span></span><span></span>
+            <span></span><span></span>
+          </span>
+          All Items
+        </button>
+      </li>
+
+      <li>
+        <button class="category-chip" aria-pressed="false" aria-label="Vestidos">
+          <!-- icono vestido simple -->
+          <svg class="category-chip__icon" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+               stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+              <img src="/almacenamiento/img/Type=Default, Category=linear, Library=dress.png" alt="">
+          </svg>
+          Vestidos
+        </button>
+      </li>
+
+      <li>
+        <button class="category-chip" aria-pressed="false" aria-label="Camisetas">
+          <svg class="category-chip__icon" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+               stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+               <img src="/almacenamiento/img//Type=Default, Category=linear, Library=tshirt.png" alt="icono camiseta">
+          </svg>
+          Camisetas
+        </button>
+      </li>
+
+      <li>
+        <button class="category-chip" aria-pressed="false" aria-label="Vaqueros">
+          <!-- Icono pantalón simple -->
+          <svg class="category-chip__icon" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+               stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+              <img src="/almacenamiento/img/Type=Default, Category=linear, Library=jeans.png" alt="icono camiseta">
+          </svg>
+          Pantalones
+        </button>
+      </li>
+
+      <li>
+        <button class="category-chip" aria-pressed="false" aria-label="Chaquetas">
+          chaketas
+        </button>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       GRID DE PRODUCTOS
+  ══════════════════════════════════ -->
+  <main class="products-section" id="productos">
+
+    <ul class="products-grid" role="list" aria-label="Listado de productos">
+
+      <!-- ── Producto 1 ── -->
+      <li role="listitem">
+        <article class="product-card">
+          <a href="vistas/detalle.html" aria-label="Ver Modern Light Clothes">
+            <div class="product-card__img-wrap">
+              <img src="/almacenamiento/img/Product 1.png" alt="modern light clothes" loading="lazy" />
+              <!-- Botón favorito -->
+              <button class="product-card__fav-btn" aria-label="Agregar a favoritos" aria-pressed="false">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
+                           a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78
+                           1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+            </div>
+          </a>
+          <div class="product-card__info">
+            <a href="vistas/detalle.html" class="product-card__name">Modern Light Clothes</a>
+            <span class="product-card__category">T-Shirt</span>
+            <div class="product-card__bottom">
+              <span class="product-card__price">$212.99</span>
+              <div class="product-card__rating" aria-label="Calificación 5.0">
+                <svg class="star-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87
+                           1.18 6.88L12 17.77l-6.18 3.25L7 14.14
+                           2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>5.0</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+
+      <!-- ── Producto 2 ── -->
+      <li role="listitem">
+        <article class="product-card">
+          <a href="vistas/detalle.html" aria-label="Ver Light Dress Bless">
+            <div class="product-card__img-wrap">
+             <img src="/almacenamiento/img/Library=Product2.png" alt="light dress bless" loading="lazy" />
+              <button class="product-card__fav-btn active" aria-label="Quitar de favoritos" aria-pressed="true">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
+                           a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78
+                           1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+            </div>
+          </a>
+          <div class="product-card__info">
+            <a href="vistas/detalle.html" class="product-card__name">Light Dress Bless</a>
+            <span class="product-card__category">Dress modern</span>
+            <div class="product-card__bottom">
+              <span class="product-card__price">$162.99</span>
+              <div class="product-card__rating" aria-label="Calificación 5.0">
+                <svg class="star-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87
+                           1.18 6.88L12 17.77l-6.18 3.25L7 14.14
+                           2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>5.0</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+
+      <!-- ── Producto 3 ── -->
+      <li role="listitem">
+        <article class="product-card">
+          <a href="vistas/detalle.html" aria-label="Ver Urban Style Jacket">
+            <div class="product-card__img-wrap">
+             <img src="/almacenamiento/img/Library=Product3.png" alt="urban style jacket" loading="lazy" />
+              <button class="product-card__fav-btn" aria-label="Agregar a favoritos" aria-pressed="false">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
+                           a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78
+                           1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+            </div>
+          </a>
+          <div class="product-card__info">
+            <a href="vistas/detalle.html" class="product-card__name">Urban Style Jacket</a>
+            <span class="product-card__category">Jacket modern</span>
+            <div class="product-card__bottom">
+              <span class="product-card__price">$189.99</span>
+              <div class="product-card__rating" aria-label="Calificación 4.8">
+                <svg class="star-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87
+                           1.18 6.88L12 17.77l-6.18 3.25L7 14.14
+                           2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+
+      <!-- ── Producto 4 ── -->
+      <li role="listitem">
+        <article class="product-card">
+          <a href="vistas/detalle.html" aria-label="Ver Classic White Tee">
+            <div class="product-card__img-wrap">
+              <img src="/almacenamiento/img/Library=Product4.png" alt="classic white tee" loading="lazy" />
+              <button class="product-card__fav-btn" aria-label="Agregar a favoritos" aria-pressed="false">
+                <svg viewBox="0 0 24 24" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
+                           a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78
+                           1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+            </div>
+          </a>
+          <div class="product-card__info">
+            <a href="vistas/detalle.html" class="product-card__name">Classic White Tee</a>
+            <span class="product-card__category">T-Shirt</span>
+            <div class="product-card__bottom">
+              <span class="product-card__price">$89.99</span>
+              <div class="product-card__rating" aria-label="Calificación 4.7">
+                <svg class="star-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87
+                           1.18 6.88L12 17.77l-6.18 3.25L7 14.14
+                           2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </li>
+
+    </ul>
+
+  </main>
+
+  <!-- ══════════════════════════════════
+       BOTTOM NAV
+  ══════════════════════════════════ -->
+  <nav class="bottom-nav" aria-label="Navegación principal">
+
+    <!-- Inicio -->
+    <a href="../índice.html" class="nav-item active" aria-label="Inicio" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span class="sr-only">Inicio</span>
+    </a>
+
+    <!-- Carrito -->
+    <a href="vistas/pago.html" class="nav-item" aria-label="Carrito (3 artículos)">
+      <div class="nav-item__wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="nav-badge" aria-label="3 artículos en carrito">3</span>
+      </div>
+      <span class="sr-only">Carrito</span>
+    </a>
+
+    <!-- Favoritos -->
+    <a href="#" class="nav-item" aria-label="Lista de favoritos">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06
+                 a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78
+                 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      <span class="sr-only">Favoritos</span>
+    </a>
+
+    <!-- Perfil -->
+    <a href="#" class="nav-item" aria-label="Perfil de usuario">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span class="sr-only">Perfil</span>
+    </a>
+
+  </nav>
+
+</div><!-- /.page-wrapper -->
+
+<!-- ══════════════════════════════════
+     JS MÍNIMO — sin librerías
+══════════════════════════════════ -->
+<script>
+  /* Favoritos */
+  document.querySelectorAll('.product-card__fav-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const active = this.classList.toggle('active');
+      this.setAttribute('aria-pressed', active);
+      this.setAttribute('aria-label', active ? 'Quitar de favoritos' : 'Agregar a favoritos');
+    });
+  });
+
+  /* Chips de categoría */
+  document.querySelectorAll('.category-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.category-chip').forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+    });
+  });
+</script>
+
+</body>
+</html>

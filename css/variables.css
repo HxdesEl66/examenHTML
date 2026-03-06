@@ -1,0 +1,138 @@
+/* ============================================================
+   VARIABLES GLOBALES
+   Paleta: Nam Design Color Guide (imágenes del proyecto)
+   Tipografía: Encode Sans (local — carpeta encode_sans)
+   ============================================================ */
+
+/* ── Encode Sans — fuente local ── */
+@font-face {
+  font-family: 'Encode Sans';
+  src: url('../almacenamiento/fuente/encode_sans/EncodeSans-Light.woff2') format('woff2'),
+       url('../almacenamiento/fuente/encode_sans/EncodeSans-Light.ttf')   format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Encode Sans';
+  src: url('../almacenamiento/fuente/encode_sans/EncodeSans-Regular.woff2') format('woff2'),
+       url('../almacenamiento/fuente/encode_sans/EncodeSans-Regular.ttf')   format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Encode Sans';
+  src: url('../almacenamiento/fuente/encode_sans/EncodeSans-Medium.woff2') format('woff2'),
+       url('../almacenamiento/fuente/encode_sans/EncodeSans-Medium.ttf')   format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Encode Sans';
+  src: url('../almacenamiento/fuente/encode_sans/EncodeSans-SemiBold.woff2') format('woff2'),
+       url('../almacenamiento/fuente/encode_sans/EncodeSans-SemiBold.ttf')   format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Encode Sans';
+  src: url('../almacenamiento/fuente/encode_sans/EncodeSans-Bold.woff2') format('woff2'),
+       url('../almacenamiento/fuente/encode_sans/EncodeSans-Bold.ttf')   format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   ──────────────────────────────────────────────────────────── */
+:root {
+
+  /* ── Paleta exacta — Nam Design Color Guide ── */
+  --color-01: #292526;   /* dark charcoal — texto principal  */
+  --color-02: #787676;   /* medium gray   — texto secundario */
+  --color-03: #A3A1A2;   /* light gray    — placeholders     */
+  --color-04: #F2F2F2;   /* off-white     — fondos suaves    */
+  --color-05: #121111;   /* near-black    — botones, navbar  */
+
+  /* ── Semánticos ── */
+  --color-bg:          #FFFFFF;
+  --color-bg-soft:     var(--color-04);
+  --color-text:        var(--color-01);
+  --color-text-muted:  var(--color-02);
+  --color-text-faint:  var(--color-03);
+  --color-border:      #E8E8E8;
+  --color-border-dark: var(--color-03);
+
+  /* Acento mínimo: amarillo rating (como en Figma) */
+  --color-star: #F5A623;
+
+  /* Botón principal */
+  --color-btn-bg:   var(--color-05);
+  --color-btn-text: #FFFFFF;
+
+  /* Chip categoría activo */
+  --color-chip-active-bg:   var(--color-05);
+  --color-chip-active-text: #FFFFFF;
+
+  /* ── Tipografía ── */
+  --font: 'Encode Sans', system-ui, sans-serif;
+
+  --text-xs:   0.6875rem;  /* 11px */
+  --text-sm:   0.75rem;    /* 12px */
+  --text-base: 0.875rem;   /* 14px */
+  --text-md:   1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.375rem;   /* 22px */
+  --text-2xl:  1.625rem;   /* 26px */
+
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+
+  --lh-tight:  1.2;
+  --lh-snug:   1.35;
+  --lh-normal: 1.5;
+
+  /* ── Espaciado ── */
+  --sp-1:  0.25rem;   /*  4px */
+  --sp-2:  0.5rem;    /*  8px */
+  --sp-3:  0.75rem;   /* 12px */
+  --sp-4:  1rem;      /* 16px */
+  --sp-5:  1.25rem;   /* 20px */
+  --sp-6:  1.5rem;    /* 24px */
+  --sp-8:  2rem;      /* 32px */
+  --sp-10: 2.5rem;    /* 40px */
+
+  /* ── Bordes ── */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  /* ── Sombras ── */
+  --shadow-xs: 0 1px 3px rgba(18,17,17,.06);
+  --shadow-sm: 0 2px 8px rgba(18,17,17,.08);
+  --shadow-md: 0 4px 16px rgba(18,17,17,.10);
+
+  /* ── Transiciones ── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-mid:  260ms;
+
+  /* ── Layout móvil ── */
+  --page-max-w:    390px;
+  --page-px:       20px;
+  --bottom-nav-h:  72px;
+  --top-bar-h:     60px;
+}
