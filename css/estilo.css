@@ -262,6 +262,37 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   gap: var(--sp-4);
 }
 
+/* ── Responsive breakpoints ── */
+@media (min-width: 600px) {
+  /* tablet: three-column grid */
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  /* desktop: grid expands, wrapper uses full width */
+  :root {
+    --page-max-w: 100%;    /* remove limit */
+  }
+  .page-wrapper {
+    max-width: none;       /* allow full viewport width */
+    width: 100%;
+    padding-left: 0;       /* remove gutter on very wide screens */
+    padding-right: 0;
+  }
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .top-bar {
+    padding: var(--sp-5) var(--sp-8) var(--sp-3);
+  }
+  /* hide mobile bottom nav on larger screens */
+  .bottom-nav {
+    display: none;
+  }
+}
+
 /* ── Product Card ── */
 .product-card {
   display: flex;

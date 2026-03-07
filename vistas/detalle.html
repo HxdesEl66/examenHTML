@@ -15,16 +15,12 @@
   <!-- ══════════════════════════════════
        HERO IMAGE + BOTONES FLOTANTES
   ══════════════════════════════════ -->
-  <section class="hero-section no-img" aria-label="Imagen del producto">
-
-    <!--
-      INSTRUCCIÓN: Cuando tengas la imagen, reemplaza la clase "no-img"
-      con la imagen dentro del section:
-      <img
-        src="../almacenamiento/img/detalle-principal.jpg"
-        alt="Light Dress Bless — vestido negro elegante vista frontal"
-      />
-    -->
+  <section class="hero-section" aria-label="Imagen del producto">
+    <img
+      id="product-image"
+      src="../almacenamiento/img/Product 1.png"
+      alt="Producto"
+    />
 
     <!-- Nav flotante sobre la imagen -->
     <div class="hero-nav" aria-label="Navegación de producto">
@@ -61,7 +57,7 @@
 
     <!-- Título + control de cantidad -->
     <div class="product-title-row">
-      <h1 class="product-title">Light Dress<br>Bless</h1>
+      <h1 id="product-title" class="product-title">Light Dress<br>Bless</h1>
 
       <div class="qty-control" role="group" aria-label="Cantidad">
         <button
@@ -156,7 +152,7 @@
       </svg>
       Add to Cart |
       <span class="btn-add-to-cart__price" id="cta-price">$100.99</span>
-      <span class="btn-add-to-cart__old-price" aria-label="Precio original $190.99">$190.99</span>
+      <span class="btn-add-to-cart__old-price" aria-label="Precio original $190.99" id="old-price">$190.99</span>
     </a>
   </aside>
 
@@ -210,7 +206,7 @@
      JS MÍNIMO — sin librerías
 ══════════════════════════════════ -->
 <script>
-  const UNIT_PRICE = 100.99;
+  let UNIT_PRICE = 100.99;
 
   /* ── Favorito ── */
   const favBtn = document.getElementById('fav-btn');
@@ -287,6 +283,60 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
   });
+
+  /* ── Productos dinámicos ── */
+  const products = [
+    {
+      id: 1,
+      name: 'Modern Light Clothes',
+      image: '../almacenamiento/img/Product 1.png',
+      price: 212.99,
+      oldPrice: 250.99,
+      category: 'T-Shirt'
+    },
+    {
+      id: 2,
+      name: 'Light Dress Bless',
+      image: '../almacenamiento/img/Library=Product2.png',
+      price: 162.99,
+      oldPrice: 190.99,
+      category: 'Dress modern'
+    },
+    {
+      id: 3,
+      name: 'Urban Style Jacket',
+      image: '../almacenamiento/img/Library=Product3.png',
+      price: 189.99,
+      oldPrice: 220.99,
+      category: 'Jacket modern'
+    },
+    {
+      id: 4,
+      name: 'Classic White Tee',
+      image: '../almacenamiento/img/Library=Product4.png',
+      price: 89.99,
+      oldPrice: 120.99,
+      category: 'T-Shirt'
+    }
+  ];
+
+  // Obtener el ID del producto de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = parseInt(urlParams.get('id')) || 1; // Default to 1 if no id
+
+  // Encontrar el producto
+  const product = products.find(p => p.id === productId) || products[0];
+
+  // Actualizar elementos
+  document.getElementById('product-image').src = product.image;
+  document.getElementById('product-image').alt = product.name;
+  document.getElementById('product-title').innerHTML = product.name.replace(' ', '<br>');
+  document.getElementById('cta-price').textContent = '$' + product.price.toFixed(2);
+  document.getElementById('old-price').textContent = '$' + product.oldPrice.toFixed(2);
+
+  // Actualizar UNIT_PRICE para el cálculo de cantidad
+  UNIT_PRICE = product.price;
+  updateQty(qty); // Actualizar el precio mostrado
 </script>
 
 
