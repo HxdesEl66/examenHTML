@@ -1,12 +1,11 @@
 /* ============================================================
    ESTILO.CSS — Página de Inicio
-   Fiel al wireframe Figma: fondo blanco, Encode Sans,
-   paleta monocromática Nam Design
+   Fiel al wireframe Figma
    ============================================================ */
 
 @import url('variables.css');
 
-/* ── Reset ── */
+/* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -24,12 +23,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a   { text-decoration: none; color: inherit; }
+a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
-ul  { list-style: none; }
+ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: var(--font); }
 
-/* ── Contenedor página ── */
+/* Page wrapper */
 .page-wrapper {
   max-width: var(--page-max-w);
   margin: 0 auto;
@@ -39,9 +38,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   overflow-x: hidden;
 }
 
-/* ════════════════════════════════
-   TOP BAR
-   ════════════════════════════════ */
+/* Top Bar */
 .top-bar {
   padding: var(--sp-5) var(--page-px) var(--sp-3);
   display: flex;
@@ -71,7 +68,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   letter-spacing: -0.01em;
 }
 
-/* Avatar circular */
 .top-bar__avatar {
   width: 44px;
   height: 44px;
@@ -91,7 +87,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   object-fit: cover;
 }
 
-/* Placeholder cuando no hay imagen */
 .avatar-placeholder {
   font-size: var(--text-md);
   font-weight: var(--fw-semi);
@@ -99,10 +94,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   font-family: var(--font);
 }
 
-/* ════════════════════════════════
-   BARRA DE BÚSQUEDA
-   (basada en el recurso del proyecto)
-   ════════════════════════════════ */
+/* Search Bar */
 .search-section {
   padding: var(--sp-3) var(--page-px) var(--sp-4);
 }
@@ -157,7 +149,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   border-color: var(--color-border-dark);
 }
 
-/* Botón filtro — cuadrado redondeado oscuro (Figma) */
 .search-bar__filter-btn {
   width: 46px;
   height: 46px;
@@ -180,9 +171,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   fill: none;
 }
 
-/* ════════════════════════════════
-   CHIPS DE CATEGORÍA
-   ════════════════════════════════ */
+/* Categories */
 .categories-section {
   padding: 0 var(--page-px) var(--sp-5);
 }
@@ -233,7 +222,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   line-height: 1;
 }
 
-/* Chip "All Items" tiene icono grid (SVG) */
 .chip-all-icon {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -248,9 +236,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   border-radius: 1px;
 }
 
-/* ════════════════════════════════
-   GRID DE PRODUCTOS
-   ════════════════════════════════ */
+/* Products Grid */
 .products-section {
   padding: 0 var(--page-px);
   padding-bottom: calc(var(--bottom-nav-h) + var(--sp-6));
@@ -262,38 +248,32 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   gap: var(--sp-4);
 }
 
-/* ── Responsive breakpoints ── */
+/* Responsive */
 @media (min-width: 300px) {
-  /* tablet: three-column grid */
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-  /* hide bottom nav on tablets and larger */
-  .bottom-nav {
-    display: none;
+    gap: var(--sp-3);
   }
 }
 
 @media (min-width: 720px) {
-  /* desktop: grid expands, wrapper uses full width */
   :root {
-    --page-max-w: 100%;    /* remove limit */
+    --page-max-w: 100%;
   }
   .page-wrapper {
-    max-width: none;       /* allow full viewport width */
+    max-width: 1000px;
     width: 100%;
-    padding-left: 0;       /* remove gutter on very wide screens */
-    padding-right: 0;
   }
   .products-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
   }
   .top-bar {
-    padding: var(--sp-5) var(--sp-8) var(--sp-3);
+    padding: var(--sp-5) var(--sp-6) var(--sp-3);
   }
 }
 
-/* ── Product Card ── */
+/* Product Card */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -301,7 +281,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   cursor: pointer;
 }
 
-/* Imagen — proporción 1:1.3 aprox, bordes redondeados */
 .product-card__img-wrap {
   position: relative;
   border-radius: var(--radius-lg);
@@ -310,13 +289,10 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   aspect-ratio: 3 / 4;
 }
 
-/* Alternating image sizes for visual rhythm */
-/* Even items (2, 4, 6...) — taller/larger */
 .products-grid li:nth-child(even) .product-card__img-wrap {
   aspect-ratio: 3 / 4.2;
 }
 
-/* Odd items (1, 3, 5...) — shorter/smaller */
 .products-grid li:nth-child(odd) .product-card__img-wrap {
   aspect-ratio: 3 / 3.8;
 }
@@ -332,7 +308,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   transform: scale(1.04);
 }
 
-/* Imagen placeholder cuando no hay img */
 .product-card__img-wrap.no-img {
   display: flex;
   align-items: center;
@@ -345,7 +320,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   opacity: 0.3;
 }
 
-/* Botón favorito circular blanco */
+/* Favorite Button */
 .product-card__fav-btn {
   position: absolute;
   top: var(--sp-3);
@@ -376,7 +351,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   fill: var(--color-text);
 }
 
-/* Info debajo de la imagen */
+/* Product Info */
 .product-card__info {
   display: flex;
   flex-direction: column;
@@ -385,8 +360,8 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 
 .product-card__name {
-  font-size: var(--text-base);
-  font-weight: var(--fw-semi);
+  font-size: var(--text-xl);
+  font-weight: var(--fw-bold);
   color: var(--color-text);
   line-height: var(--lh-snug);
 }
@@ -416,7 +391,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   gap: 4px;
 }
 
-/* Estrella llena (SVG inline) */
 .star-icon {
   width: 12px;
   height: 12px;
@@ -429,10 +403,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   color: var(--color-text-muted);
 }
 
-/* ════════════════════════════════
-   BOTTOM NAV
-   ════════════════════════════════ */
+/* Bottom Nav - SOLO VISIBLE EN MÓVILES */
 .bottom-nav {
+  display: none; /* Oculto por defecto para desktop/tablet */
   position: fixed;
   bottom: 0;
   left: 50%;
@@ -442,11 +415,20 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   height: var(--bottom-nav-h);
   background: var(--color-05);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   padding: 0 var(--sp-6);
   z-index: 200;
+}
+
+@media (max-width: 480px) {
+  .bottom-nav {
+    display: flex; /* Solo visible cuando pantalla < 480px */
+  }
+  .products-section {
+    padding-bottom: calc(var(--bottom-nav-h) + var(--sp-6));
+  }
 }
 
 .nav-item {
@@ -473,7 +455,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
 .nav-item.active svg { stroke: #FFFFFF; }
 
-/* Badge carrito */
 .nav-item__wrap {
   position: relative;
 }
@@ -494,16 +475,14 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   justify-content: center;
 }
 
-/* ── Utilidades ── */
+/* Utilities */
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* ════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════ */
+/* More Responsive */
 @media (min-width: 430px) {
   .page-wrapper {
     box-shadow: var(--shadow-md);
@@ -514,11 +493,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   :root {
     --page-px: 16px;
   }
-
   .products-grid {
     gap: var(--sp-3);
   }
-
   .top-bar__name {
     font-size: var(--text-lg);
   }
@@ -529,3 +506,4 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
     --page-max-w: 480px;
   }
 }
+

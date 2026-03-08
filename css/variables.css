@@ -66,9 +66,6 @@
   --font-primary: var(--font);
   --weight-regular: var(--fw-regular);
   --weight-bold: var(--fw-bold);
-  --weight-medium: var(--fw-medium);
-
-  /* ── Semánticos ── */
   --color-bg:          #FFFFFF;
   --color-bg-soft:     var(--color-04);
   --color-text:        var(--color-01);
