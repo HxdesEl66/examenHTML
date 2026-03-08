@@ -114,9 +114,38 @@
     <section aria-label="Productos en el carrito">
       <ul class="cart-items-list" id="cart-list" role="list" aria-label="Lista de productos">
 
-        <!-- Item - se carga dinámicamente desde localStorage -->
+        <!-- Item - Producto estático -->
         <li role="listitem" id="cart-item-container">
-          <!-- El contenido se genera con JS -->
+          <div class="cart-item" data-price="100.99" data-qty="1">
+            <div class="cart-item__img" role="img" aria-label="Light Dress Bless">
+              <img src="../almacenamiento/img/Product 1.png" alt="Light Dress Bless" />
+            </div>
+            <div class="cart-item__details">
+              <span class="cart-item__name">Light Dress Bless</span>
+              <span class="cart-item__category">T-Shirt</span>
+              <span class="cart-item__price" aria-live="polite">$100.99</span>
+            </div>
+            <div class="cart-item__right">
+              <button class="cart-item__menu-btn" aria-label="Opciones del producto">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="qty-mini" role="group" aria-label="Cantidad">
+                <button class="qty-mini__btn minus-btn" aria-label="Reducir cantidad" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+                <output class="qty-mini__val" aria-live="polite">1</output>
+                <button class="qty-mini__btn plus-btn" aria-label="Aumentar cantidad">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item-divider" role="separator"></div>
         </li>
 
       </ul>
@@ -146,7 +175,7 @@
 
       <div class="summary-row">
         <span class="summary-row__label">Total (<span id="item-count">1</span> items)</span>
-        <span class="summary-row__val" id="subtotal">$0.00</span>
+        <span class="summary-row__val" id="subtotal">$100.99</span>
       </div>
 
       <div class="summary-row">
@@ -163,7 +192,7 @@
 
       <div class="summary-total-row">
         <span class="label">Sub Total</span>
-        <span class="val" id="total-final">$0.00</span>
+        <span class="val" id="total-final">$100.99</span>
       </div>
 
     </section>
@@ -172,8 +201,8 @@
 
   <!-- PAY BUTTON -->
   <div class="cta-bar">
-    <button class="btn-pay" id="pay-btn" aria-label="Pagar">
-      Pay
+    <button class="btn-pay" id="pay-btn" aria-label="Pagar $100.99">
+      Pay $100.99
     </button>
   </div>
 
@@ -221,127 +250,6 @@
   </div>
 
 </div>
-
-<script>
-  // Cargar producto desde localStorage
-  function loadCartItem() {
-    const cartItem = JSON.parse(localStorage.getItem('cartItem'));
-    const container = document.getElementById('cart-item-container');
-    const itemCount = document.getElementById('item-count');
-    const subtotal = document.getElementById('subtotal');
-    const totalFinal = document.getElementById('total-final');
-
-    if (cartItem) {
-      const qty = cartItem.quantity || 1;
-      const total = cartItem.price * qty;
-
-      container.innerHTML = `
-        <div class="cart-item" data-price="${cartItem.price}" data-qty="${qty}">
-          <div class="cart-item__img" role="img" aria-label="${cartItem.name}">
-            <img src="${cartItem.image}" alt="${cartItem.name}" />
-          </div>
-          <div class="cart-item__details">
-            <span class="cart-item__name">${cartItem.name}</span>
-            <span class="cart-item__category">${cartItem.category}</span>
-            <span class="cart-item__price" aria-live="polite">$${total.toFixed(2)}</span>
-          </div>
-          <div class="cart-item__right">
-            <button class="cart-item__menu-btn" aria-label="Opciones del producto">
-              <span></span><span></span><span></span>
-            </button>
-            <div class="qty-mini" role="group" aria-label="Cantidad">
-              <button class="qty-mini__btn minus-btn" aria-label="Reducir cantidad" ${qty <= 1 ? 'disabled' : ''}>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                </svg>
-              </button>
-              <output class="qty-mini__val" aria-live="polite">${qty}</output>
-              <button class="qty-mini__btn plus-btn" aria-label="Aumentar cantidad">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <line x1="12" y1="5" x2="12" y2="19"/>
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cart-item-divider" role="separator"></div>
-      `;
-
-      itemCount.textContent = qty;
-      subtotal.textContent = '$' + total.toFixed(2);
-      totalFinal.textContent = '$' + total.toFixed(2);
-      
-      // Actualizar botón pay
-      document.getElementById('pay-btn').setAttribute('aria-label', 'Pagar $' + total.toFixed(2));
-      document.getElementById('pay-btn').textContent = 'Pay $' + total.toFixed(2);
-    } else {
-      // Producto por defecto si no hay datos
-      container.innerHTML = `
-        <div class="cart-item" data-price="100.99" data-qty="1">
-          <div class="cart-item__img" role="img" aria-label="Producto">
-            <img src="../almacenamiento/img/Product 1.png" alt="Producto" />
-          </div>
-          <div class="cart-item__details">
-            <span class="cart-item__name">Modern Light Clothes</span>
-            <span class="cart-item__category">T-Shirt</span>
-            <span class="cart-item__price" aria-live="polite">$100.99</span>
-          </div>
-          <div class="cart-item__right">
-            <button class="cart-item__menu-btn" aria-label="Opciones del producto">
-              <span></span><span></span><span></span>
-            </button>
-            <div class="qty-mini" role="group" aria-label="Cantidad">
-              <button class="qty-mini__btn minus-btn" aria-label="Reducir cantidad" disabled>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                </svg>
-              </button>
-              <output class="qty-mini__val" aria-live="polite">1</output>
-              <button class="qty-mini__btn plus-btn" aria-label="Aumentar cantidad">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <line x1="12" y1="5" x2="12" y2="19"/>
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="cart-item-divider" role="separator"></div>
-      `;
-      
-      itemCount.textContent = '1';
-      subtotal.textContent = '$100.99';
-      totalFinal.textContent = '$100.99';
-      document.getElementById('pay-btn').textContent = 'Pay $100.99';
-    }
-  }
-
-  // Inicializar
-  loadCartItem();
-
-  // Modal de confirmación
-  const payBtn = document.getElementById('pay-btn');
-  const confirmModal = document.getElementById('confirm-modal');
-  const closeConfirmBtn = document.getElementById('close-confirm-btn');
-
-  payBtn.addEventListener('click', () => {
-    confirmModal.classList.add('open');
-    confirmModal.setAttribute('aria-hidden', 'false');
-  });
-
-  closeConfirmBtn.addEventListener('click', () => {
-    confirmModal.classList.remove('open');
-    confirmModal.setAttribute('aria-hidden', 'true');
-  });
-
-  confirmModal.addEventListener('click', (e) => {
-    if (e.target === confirmModal) {
-      confirmModal.classList.remove('open');
-      confirmModal.setAttribute('aria-hidden', 'true');
-    }
-  });
-</script>
 
 </body>
 </html>
