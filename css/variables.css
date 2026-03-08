@@ -62,6 +62,12 @@
   --color-04: #F2F2F2;   /* off-white     — fondos suaves    */
   --color-05: #121111;   /* near-black    — botones, navbar  */
 
+  /* ── Alias para compatibilidad ── */
+  --font-primary: var(--font);
+  --weight-regular: var(--fw-regular);
+  --weight-bold: var(--fw-bold);
+  --weight-medium: var(--fw-medium);
+
   /* ── Semánticos ── */
   --color-bg:          #FFFFFF;
   --color-bg-soft:     var(--color-04);

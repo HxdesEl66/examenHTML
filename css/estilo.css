@@ -263,14 +263,18 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 
 /* ── Responsive breakpoints ── */
-@media (min-width: 600px) {
+@media (min-width: 300px) {
   /* tablet: three-column grid */
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  /* hide bottom nav on tablets and larger */
+  .bottom-nav {
+    display: none;
+  }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 720px) {
   /* desktop: grid expands, wrapper uses full width */
   :root {
     --page-max-w: 100%;    /* remove limit */
@@ -286,10 +290,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   }
   .top-bar {
     padding: var(--sp-5) var(--sp-8) var(--sp-3);
-  }
-  /* hide mobile bottom nav on larger screens */
-  .bottom-nav {
-    display: none;
   }
 }
 
@@ -308,6 +308,17 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   overflow: hidden;
   background: var(--color-bg-soft);
   aspect-ratio: 3 / 4;
+}
+
+/* Alternating image sizes for visual rhythm */
+/* Even items (2, 4, 6...) — taller/larger */
+.products-grid li:nth-child(even) .product-card__img-wrap {
+  aspect-ratio: 3 / 4.2;
+}
+
+/* Odd items (1, 3, 5...) — shorter/smaller */
+.products-grid li:nth-child(odd) .product-card__img-wrap {
+  aspect-ratio: 3 / 3.8;
 }
 
 .product-card__img-wrap img {

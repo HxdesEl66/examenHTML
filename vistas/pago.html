@@ -162,7 +162,7 @@
                     <line x1="5" y1="12" x2="19" y2="12"/>
                   </svg>
                 </button>
-                <output class="qty-mini__val" aria-live="polite">4</o>
+                <output class="qty-mini__val" aria-live="polite">4</output>
                 <button class="qty-mini__btn plus-btn" aria-label="Aumentar cantidad">
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <line x1="12" y1="5" x2="12" y2="19"/>
@@ -200,7 +200,7 @@
                     <line x1="5" y1="12" x2="19" y2="12"/>
                   </svg>
                 </button>
-                <output class="qty-mini__val" aria-live="polite">1</o>
+                <output class="qty-mini__val" aria-live="polite">1</output>
                 <button class="qty-mini__btn plus-btn" aria-label="Aumentar cantidad">
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <line x1="12" y1="5" x2="12" y2="19"/>
@@ -329,76 +329,7 @@
 <!-- ══════════════════════════════════
      JS MÍNIMO — sin librerías
 ══════════════════════════════════ -->
-<script>
-  /* ── Cantidades ── */
-  function recalc() {
-    let total = 0;
-    let itemCount = 0;
 
-    document.querySelectorAll('#cart-list .cart-item').forEach(item => {
-      const price = parseFloat(item.dataset.price);
-      const qty   = parseInt(item.dataset.qty, 10);
-      const line  = price * qty;
-      total += line;
-      itemCount += qty;
-
-      item.querySelector('.qty-mini__val').textContent = qty;
-      item.querySelector('.cart-item__price').textContent =
-        '$' + line.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-      const minus = item.querySelector('.minus-btn');
-      const plus  = item.querySelector('.plus-btn');
-      if (minus) minus.disabled = qty <= 1;
-      if (plus)  plus.disabled  = qty >= 20;
-    });
-
-    const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    document.getElementById('subtotal').textContent    = fmt(total);
-    document.getElementById('total-final').textContent = fmt(total);
-    document.getElementById('pay-btn').setAttribute('aria-label', 'Pagar ' + fmt(total));
-
-    const priceLabel = document.querySelector('.summary-row__label');
-    if (priceLabel) priceLabel.textContent = 'Total (' + itemCount + ' items)';
-  }
-
-  document.querySelectorAll('#cart-list .cart-item').forEach(item => {
-    item.querySelector('.plus-btn').addEventListener('click', () => {
-      item.dataset.qty = parseInt(item.dataset.qty, 10) + 1;
-      recalc();
-    });
-    item.querySelector('.minus-btn').addEventListener('click', () => {
-      const q = parseInt(item.dataset.qty, 10);
-      if (q > 1) { item.dataset.qty = q - 1; recalc(); }
-    });
-  });
-
-  recalc();
-
-  /* ── Modal confirmación ── */
-  const confirmModal = document.getElementById('confirm-modal');
-  const payBtn       = document.getElementById('pay-btn');
-  const closeConfirm = document.getElementById('close-confirm-btn');
-
-  payBtn.addEventListener('click', () => {
-    confirmModal.classList.add('open');
-    confirmModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  });
-
-  function closeModal() {
-    confirmModal.classList.remove('open');
-    confirmModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  closeConfirm.addEventListener('click', closeModal);
-  confirmModal.addEventListener('click', e => {
-    if (e.target === confirmModal) closeModal();
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && confirmModal.classList.contains('open')) closeModal();
-  });
-</script>
 
 </body>
 </html>
