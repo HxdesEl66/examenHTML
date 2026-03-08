@@ -6,7 +6,7 @@
   <meta name="description" content="StyleStore — Tu tienda de moda online." />
   <title>StyleStore — Inicio</title>
   <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/estilo.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -137,7 +137,7 @@
       <!-- ── Producto 1 ── -->
       <li role="listitem">
         <article class="product-card">
-          <a href="vistas/detalle.html?id=1" aria-label="Ver Modern Light Clothes">
+          <a href="views/detail.html?id=1" aria-label="Ver Modern Light Clothes">
             <div class="product-card__img-wrap">
               <img src="/almacenamiento/img/Product 1.png" alt="modern light clothes" loading="lazy" />
               <!-- Botón favorito -->
@@ -152,7 +152,7 @@
             </div>
           </a>
           <div class="product-card__info">
-            <a href="vistas/detalle.html?id=1" class="product-card__name">Modern Light Clothes</a>
+            <a href="views/detail.html?id=1" class="product-card__name">Modern Light Clothes</a>
             <span class="product-card__category">T-Shirt</span>
             <div class="product-card__bottom">
               <span class="product-card__price">$212.99</span>
@@ -172,7 +172,7 @@
       <!-- ── Producto 2 ── -->
       <li role="listitem">
         <article class="product-card">
-          <a href="vistas/detalle.html?id=2" aria-label="Ver Light Dress Bless">
+          <a href="views/detail.html?id=2" aria-label="Ver Light Dress Bless">
             <div class="product-card__img-wrap">
              <img src="/almacenamiento/img/Library=Product2.png" alt="light dress bless" loading="lazy" />
               <button class="product-card__fav-btn active" aria-label="Quitar de favoritos" aria-pressed="true">
@@ -186,7 +186,7 @@
             </div>
           </a>
           <div class="product-card__info">
-            <a href="vistas/detalle.html?id=2" class="product-card__name">Light Dress Bless</a>
+            <a href="views/detail.html?id=2" class="product-card__name">Light Dress Bless</a>
             <span class="product-card__category">Dress modern</span>
             <div class="product-card__bottom">
               <span class="product-card__price">$162.99</span>
@@ -206,7 +206,7 @@
       <!-- ── Producto 3 ── -->
       <li role="listitem">
         <article class="product-card">
-          <a href="vistas/detalle.html?id=3" aria-label="Ver Urban Style Jacket">
+          <a href="views/detail.html?id=3" aria-label="Ver Urban Style Jacket">
             <div class="product-card__img-wrap">
              <img src="/almacenamiento/img/Library=Product3.png" alt="urban style jacket" loading="lazy" />
               <button class="product-card__fav-btn" aria-label="Agregar a favoritos" aria-pressed="false">
@@ -220,7 +220,7 @@
             </div>
           </a>
           <div class="product-card__info">
-            <a href="vistas/detalle.html?id=3" class="product-card__name">Urban Style Jacket</a>
+            <a href="views/detail.html?id=3" class="product-card__name">Urban Style Jacket</a>
             <span class="product-card__category">Jacket modern</span>
             <div class="product-card__bottom">
               <span class="product-card__price">$189.99</span>
@@ -240,7 +240,7 @@
       <!-- ── Producto 4 ── -->
       <li role="listitem">
         <article class="product-card">
-          <a href="vistas/detalle.html?id=4" aria-label="Ver Classic White Tee">
+          <a href="views/detail.html?id=4" aria-label="Ver Classic White Tee">
             <div class="product-card__img-wrap">
               <img src="/almacenamiento/img/Library=Product4.png" alt="classic white tee" loading="lazy" />
               <button class="product-card__fav-btn" aria-label="Agregar a favoritos" aria-pressed="false">
@@ -254,7 +254,7 @@
             </div>
           </a>
           <div class="product-card__info">
-            <a href="vistas/detalle.html?id=4" class="product-card__name">Classic White Tee</a>
+            <a href="views/detail.html?id=4" class="product-card__name">Classic White Tee</a>
             <span class="product-card__category">T-Shirt</span>
             <div class="product-card__bottom">
               <span class="product-card__price">$89.99</span>
@@ -281,7 +281,7 @@
   <nav class="bottom-nav" aria-label="Navegación principal">
 
     <!-- Inicio -->
-    <a href="../índice.html" class="nav-item active" aria-label="Inicio" aria-current="page">
+    <a href="./index.html" class="nav-item active" aria-label="Inicio" aria-current="page">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -291,7 +291,7 @@
     </a>
 
     <!-- Carrito -->
-    <a href="vistas/pago.html" class="nav-item" aria-label="Carrito (3 artículos)">
+    <a href="views/checkout.html" class="nav-item" aria-label="Carrito (3 artículos)">
       <div class="nav-item__wrap">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -329,32 +329,6 @@
 
 </div><!-- /.page-wrapper -->
 
-<!-- ══════════════════════════════════
-     JS MÍNIMO — sin librerías
-══════════════════════════════════ -->
-<script>
-  /* Favoritos */
-  document.querySelectorAll('.product-card__fav-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const active = this.classList.toggle('active');
-      this.setAttribute('aria-pressed', active);
-      this.setAttribute('aria-label', active ? 'Quitar de favoritos' : 'Agregar a favoritos');
-    });
-  });
-
-  /* Chips de categoría */
-  document.querySelectorAll('.category-chip').forEach(chip => {
-    chip.addEventListener('click', function() {
-      document.querySelectorAll('.category-chip').forEach(c => {
-        c.classList.remove('active');
-        c.setAttribute('aria-pressed', 'false');
-      });
-      this.classList.add('active');
-      this.setAttribute('aria-pressed', 'true');
-    });
-  });
-</script>
 
 </body>
 </html>

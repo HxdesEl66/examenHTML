@@ -19,4 +19,4 @@ INSTRUCCIONES PARA INSTALAR LA FUENTE ENCODE SANS
    No necesitas modificar ningún CSS — solo coloca los archivos aquí.
 
 Descarga directa (ZIP completo):
-https://fonts.gstatic.com/s/encodesans/v19/LDI_apOFNx6aLQqPY2se0H3OCk6DBGdyrA.zip
+   https://fonts.gstatic.com/s/encodesans/v19/LDI_apOFNx6aLQqPY2se0H3OCk6DBGdyrA.zip
