@@ -201,10 +201,13 @@
 
   <!-- PAY BUTTON -->
   <div class="cta-bar">
-    <button class="btn-pay" id="pay-btn" aria-label="Pagar $100.99">
+    <label for="pay-toggle" class="btn-pay" aria-label="Pagar $100.99">
       Pay $100.99
-    </button>
+    </label>
   </div>
+
+  <!-- Hidden checkbox to control modal (CSS-only approach) -->
+  <input type="checkbox" id="pay-toggle" class="pay-checkbox" />
 
   <!-- MODAL CONFIRMACIÓN -->
   <div

@@ -553,6 +553,26 @@ ul { list-style: none; }
 /* ════════════════════════════════
    MODAL CONFIRMACIÓN DE PAGO
    ════════════════════════════════ */
+
+/* Hidden checkbox for CSS-only modal control */
+.pay-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+/* Show modal when checkbox is checked */
+.pay-checkbox:checked ~ .modal-overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.pay-checkbox:checked ~ .modal-overlay .modal-card {
+  transform: scale(1) translateY(0);
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
