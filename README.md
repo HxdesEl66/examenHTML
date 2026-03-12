@@ -6,9 +6,7 @@ El objetivo es construir una **interfaz simple, visual y confiable**, priorizand
 ---
 
 # 📌 Información del Proyecto
-
-**Desarrollador:** Kevin Andres Castillo Pabón
-**Trainer / Profesor:** Jholver Pardo
+DESARROLLADOR_ DANIEL VILA
 
 Este proyecto fue desarrollado como práctica de **Front-End con HTML y CSS nativo**, siguiendo un diseño basado en un wireframe de Figma.
 
