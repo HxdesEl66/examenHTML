@@ -1,0 +1,1 @@
+# Task: Organize perfil page (simple) - COMPLETED\n\n- [x] Step 1: Fix and organize views/perfil.html (structure, semantics, icons)\n- [x] Step 2: Improve css/perfil.css (layout, basic styles)\n- [x] Step 3: Test and complete
